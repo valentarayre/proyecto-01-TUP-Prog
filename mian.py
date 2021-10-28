@@ -36,12 +36,22 @@ def cambiar_numero2(num):
         else:
             return cambiar_numero2(num // 10) * 10 + 2
 
+def cambiar_lista(lista):
+    if len(lista) <= 0:
+        return lista
+    else:        
+        return cambiar_lista(lista[:-1]) + lista[-1]
+   
+
+ 
 def main():
     #expreciones_regulares()
-    num = 46579222
-    
+    #num = 46579222    
     #print(cambiar_numero(str(num)))
-    print(cambiar_numero2(num))
+    #print(cambiar_numero2(num))
+    l =  [ [1, 2, 3], [4, 5, 6], [7], [8] ]
+    print(cambiar_lista(l))
+    
 
 
 if __name__ == "__main__":
