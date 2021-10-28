@@ -54,7 +54,16 @@ def compara_list(list1, list2):
         return False
     # llama de vuelta a la funcion sin el primer elemento de la lista
     return compara_list(list1[1:], list2[1:])
- 
+
+def divicion_ent(a,b):
+    if a <= 0:
+        return a
+    else:
+        return divicion_ent(a-b,b) +1
+
+
+
+
 def main():
     #expreciones_regulares()
     #num = 46579222    
@@ -62,10 +71,12 @@ def main():
     #print(cambiar_numero2(num))
     #l =  [ [1, 2, 3], [4, 5, 6], [7], [8] ]
     #print(cambiar_lista(l))
-    l1 = [1,2,3,4]
+    """ l1 = [1,2,3,4]
     l2 = [1,2,3,4]
     print(compara_list(l1,l2))
-    print(compara_list([],[]))
+    print(compara_list([],[])) """
+    print(divicion_ent(10,3))
+
     
 
 
