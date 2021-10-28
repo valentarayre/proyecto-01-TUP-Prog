@@ -41,16 +41,31 @@ def cambiar_lista(lista):
         return lista
     else:        
         return cambiar_lista(lista[:-1]) + lista[-1]
-   
 
+def compara_list(list1, list2):
+    #Si tienen distinto cantidad de elementos, son diferentes
+    if len(list1) != len(list2):
+        return False
+    #Si las dos estan vacias son iguales
+    if not (list1 and list2):
+        return True
+    # Compara los dos primeros elementos si son iguales
+    if list1[0] != list2[0]:
+        return False
+    # llama de vuelta a la funcion sin el primer elemento de la lista
+    return compara_list(list1[1:], list2[1:])
  
 def main():
     #expreciones_regulares()
     #num = 46579222    
     #print(cambiar_numero(str(num)))
     #print(cambiar_numero2(num))
-    l =  [ [1, 2, 3], [4, 5, 6], [7], [8] ]
-    print(cambiar_lista(l))
+    #l =  [ [1, 2, 3], [4, 5, 6], [7], [8] ]
+    #print(cambiar_lista(l))
+    l1 = [1,2,3,4]
+    l2 = [1,2,3,4]
+    print(compara_list(l1,l2))
+    print(compara_list([],[]))
     
 
 
