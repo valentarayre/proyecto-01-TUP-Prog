@@ -1,0 +1,97 @@
+[{
+        "nombre": "Sur_10",
+        "lat": -16.55555,
+        "long": -32.3333,
+        "sensor": [{
+                "tipo": "Temputara",
+                "escala": "C",
+                "medicion": 30
+            },
+            {
+                "tipo": "Humedad",
+                "escala": "g/m3",
+                "medicion": 100
+            },
+            {
+                "tipo": "Velocidad Viento",
+                "escala": "km/H",
+                "medicion": 40
+            },
+            {
+                "tipo": "Presion atmosferica",
+                "escala": "hPa",
+                "medicion": 50
+            }
+        ],
+        "bateria": [
+            2432,
+            2432,
+            2432,
+            2432,
+            2432,
+            2432,
+            2432,
+            2432,
+            2432,
+            2432,
+            2432,
+            2432,
+            2432,
+            2432,
+            2432,
+            2432,
+            2432,
+            2432,
+            2432,
+            2432
+        ]
+    },
+    {
+        "nombre": "Norte_20",
+        "lat": -18.55555,
+        "long": -30.3333,
+        "sensor": [{
+                "tipo": "Temputara",
+                "escala": "C",
+                "medicion": 30
+            },
+            {
+                "tipo": "Humedad",
+                "escala": "g/m3",
+                "medicion": 100
+            },
+            {
+                "tipo": "Velocidad Viento",
+                "escala": "km/H",
+                "medicion": 40
+            },
+            {
+                "tipo": "Presion atmosferica",
+                "escala": "hPa",
+                "medicion": 70
+            }
+        ],
+        "bateria": [
+            3400,
+            3400,
+            3400,
+            3400,
+            3400,
+            3400,
+            3400,
+            3400,
+            3400,
+            3400,
+            3400,
+            3400,
+            3400,
+            3400,
+            3400,
+            3400,
+            3400,
+            3400,
+            3400,
+            3400
+        ]
+    }
+]

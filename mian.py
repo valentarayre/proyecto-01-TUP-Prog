@@ -1,23 +1,5 @@
 import re 
-
-#   Primer Eje
-
-# La exprecion regular que encontre fue
-# /^(L(V|Q)-[A-Z]{3})|(LV-(S|X|SX)\d{3})/
-# ^((\d{1,3})|(1[0-8]\d\d))$
-
-
-def expreciones_regulares():
-    test = ["LV-QWE","LQ-ABE","LV-X443","LV-S586","LV-SX334","LA-123","LX-ABC","LV","LV-344"]
-    exp = r'/^(L(V|Q)-[A-Z]{3})|(LV-(S|X|SX)\d{3})/'
-
-    exp = re.compile(r'^(L(V|Q)-[A-Z]{3})|(LV-(S|X|SX)\d{3})')
-
-    for e in test:    
-        if exp.search(e) is not None:
-            print("Es Correcta la Matricula:", e)
-        else:
-            print("No es Correcta la Matricula:", e) 
+import json
 
 def cambiar_numero(num):
     if len(num) == 0:
@@ -61,10 +43,44 @@ def divicion_ent(a,b):
     else:
         return divicion_ent(a-b,b) +1
 
+def calcular_pi(i):
+    if i == 0:
+        return 4
+    else:
+        return (4 * (-1)**i) * (1/(2*i+1)) + calcular_pi(i-1)
+    
+def mostrar_estacion(data):
+    cont = 0
+    for e in data:
+        aux = e['nombre']
+        print(f'{cont:>3d} : {aux:<20s}')
+        cont +=1
+
+    try:        
+        selec = int(input('Seleccione la Opcion: '))    
+        element = data[selec]    
+        print('Cantidad de sensores de la estacion "{}": {}'.format(element["nombre"], len(element["sensor"])))
+        for e in element["sensor"]:        
+            print('{:<19s}: {}{}'.format(e["tipo"],e["medicion"],e["escala"]))
+    except Exception: 
+        print("No se encontro esa opcion o no es un numero valido")
+
+def prom_voltaje(data):
+    valores = []
+    for e in data:
+        acu= 0
+        cant = len(e['bateria'])
+        for valor in e['bateria']:
+            acu += valor
+        prom = acu/cant
+        valores.append({'nombre':e['nombre'],'promedio': prom})    
+    valores.sort(key = lambda valores: valores['promedio'])
+    estacion = valores[0]
+    print('La estacion con menos voltaje promedio es: {}, con un promedio de {}'.format(estacion['nombre'], estacion['promedio']))    
 
 
 
-def main():
+def menu():
     #expreciones_regulares()
     #num = 46579222    
     #print(cambiar_numero(str(num)))
@@ -75,12 +91,45 @@ def main():
     l2 = [1,2,3,4]
     print(compara_list(l1,l2))
     print(compara_list([],[])) """
-    print(divicion_ent(10,3))
+    #print(divicion_ent(0,3))
+    #print(calcular_pi(2))
+    #json2 = open("estacion.json", "rt")
+
+    #data = json.loads(json2.read())
+    #mostrar_estacion(data)
+    #prom_voltaje(data)
+    print("Trabajo Integrador Valentin Tarayre")
+    checkTema=True
+    opciones = ("Expreciones Regulares","Recurcion","Colecciones","Formato de Intercambio de Datos")
+    while(checkTema):
+        try:
+            print("Menu Opciones Tema: \n1 %s \n2 %s \n3 %s \n4 %s" %opciones)
+            selecTema = int(input("Ingrese Numero de Opcion: "))
+            if selecTema in [1,2,3,4]:
+                checkTema= False
+            else:
+                print("Vuelva a ingresar la Opcion")
+        except Exception:
+            print("Error")
+    print("\n\n")
+    if selecTema is 1:
+        print("%s" %opciones[0])
+        print("   1- Matriculas\n   2- Menores a 1900")
+        selecOpcion = int(input("Ingrese el numero: "))
+        if selecOpcion in [1,2]:
+            if selecOpcion is 1:
+                print('^(L(V|Q)-[A-Z]{3})|(LV-(S|X|SX)\d{3})$')
+            elif selecOpcion is 2:
+                print('^((\d{1,3})|(1[0-8]\d\d))$')
+        else:
+            print("Error no existe Opcion")
+            return 0
+
 
     
 
 
 if __name__ == "__main__":
-    main()
+    menu()
 else:
     print("run from import")
