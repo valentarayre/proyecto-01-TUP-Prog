@@ -9,18 +9,23 @@ import json
         else:
             return cambiar_numero_string(num[:-1]) + "2" """
 def cambiar_numero(num):
+    #Devuelve el numero cuando se haya cambiado al completo
     if num == 0:
         return num
-    else:        
+    else:
+        #si el numero es par se agrega 1 o sino 2
+        #Modulo de 10 devuelve el ultimo numero y ese numero comprobamos si es par o no
         if (num % 10) % 2 == 0:            
             return cambiar_numero(num // 10) * 10 + 1
         else:
             return cambiar_numero(num // 10) * 10 + 2
 
 def cambiar_lista(lista):
+    #devuelve la lista vacia
     if len(lista) <= 0:
         return lista
-    else:        
+    else:
+        #llama a la funcion devolviendo la lista menos el ultimo elemento y se agrega a la cola el ultimo momento
         return cambiar_lista(lista[:-1]) + lista[-1]
 
 def compara_list(list1, list2):
@@ -37,6 +42,7 @@ def compara_list(list1, list2):
     return compara_list(list1[1:], list2[1:])
 
 def divicion_ent(a,b):
+    #Se le resta el divisor y se le suma 1, contanto las veces que se dividio
     if a <= 0:
         return a
     else:
